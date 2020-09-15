@@ -65,8 +65,10 @@
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.4.2/markdown-it.min.js"></script>
     <script>
+        md = new MarkdownIt();
         fetch('https://api.scatteredchapter.com/post/')
             .then(rsp => rsp.json())
+            .then(data => data.map(({content}) => md.render(content)))
             .then(console.log)
     </script>
 </body>
