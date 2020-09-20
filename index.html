@@ -68,7 +68,10 @@
         const md = window.markdownit();
         fetch('https://api.scatteredchapter.com/post/')
             .then(rsp => rsp.json())
-            .then(data => data.map(({content}) => md.render(content)))
+            .then(data =>
+                data.filter(({content}) => content !== undefined)
+                    .map(({content}) => md.render(content))
+            )
             .then(console.log)
     </script>
 </body>
