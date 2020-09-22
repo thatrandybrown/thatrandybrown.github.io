@@ -69,7 +69,7 @@
         fetch('https://api.scatteredchapter.com/post/')
             .then(rsp => rsp.json())
             .then(data =>
-                data.filter(({content}) => content !== undefined)
+                data.filter(({content, status}) => content !== undefined && ['review','public'].includes(status))
                     .map(({content}) => md.render(content))
             )
             .then(console.log)
