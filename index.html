@@ -66,13 +66,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.4.2/markdown-it.min.js"></script>
     <script>
         const md = window.markdownit();
+        let post = [];
         fetch('https://api.scatteredchapter.com/post/')
             .then(rsp => rsp.json())
             .then(data =>
                 data.filter(({content, status}) => content !== undefined && ['review','public'].includes(status))
                     .map(({content}) => md.render(content))
             )
-            .then(console.log)
+            .then(content => content.reduce((acc, item) => {
+                // let frag = document.createFragment();
+                let article = document.createElement('article');
+                article.appendChild(item);
+                return [...acc, article];
+            }, post));
     </script>
 </body>
 </html>
