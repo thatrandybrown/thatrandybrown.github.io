@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:base="en">
+	<title>That Randy Brown</title>
+	<subtitle>That Randy Brown is on Github</subtitle>
+	<link href="https://example.com/eleventy-base-blog/feed/feed.xml" rel="self"/>
+	<link href="https://example.com/eleventy-base-blog/"/>
+	<updated>2024-07-08T04:20:07Z</updated>
+	<id>https://example.com/</id>
+	<author>
+		<name>Randy Brown</name>
+		<email>thatrandybrown@gmail.com</email>
+	</author>
+</feed>
