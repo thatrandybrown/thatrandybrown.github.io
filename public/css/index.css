@@ -90,14 +90,19 @@ main :first-child {
 	margin-top: 0;
 }
 
+.links {
+	display: flex;
+	justify-content: space-between;
+}
+
 header {
 	border-bottom: 1px dashed var(--color-gray-20);
 }
-header:after {
+/* header:after {
 	content: "";
 	display: table;
 	clear: both;
-}
+} */
 
 .links-nextprev {
 	list-style: none;
