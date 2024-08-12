@@ -43,7 +43,7 @@
 
 html,
 body {
-	padding: 0;
+	padding: 0em 1em;
 	margin: 0 auto;
 	font-family: var(--font-family);
 	color: var(--text-color);
