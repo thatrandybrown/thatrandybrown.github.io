@@ -1,4 +1,4 @@
 .PHONY: post
 
 post:
-	touch content/thoughts/$(shell date +%s).md
+	touch content/notes/$(shell date +%s).md
