@@ -1,4 +1,4 @@
-.PHONY: post
+.PHONY: note
 
-post:
+note:
 	touch content/notes/$(shell date +%s).md
