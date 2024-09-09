@@ -1,6 +1,7 @@
 const { DateTime } = require("luxon");
 const markdownItAnchor = require("markdown-it-anchor");
 const wikilinks = require("markdown-it-wikilinks")({baseURL: '/notes/', makeAllLinksAbsolute: true, uriSuffix: '/' });
+const footnotes = require("markdown-it-footnote");
 
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
@@ -93,6 +94,7 @@ module.exports = function(eleventyConfig) {
 			slugify: eleventyConfig.getFilter("slugify")
 		});
 		mdLib.use(wikilinks);
+		mdLib.use(footnotes);
 	});
 
 	eleventyConfig.addShortcode("currentBuildDate", () => {
