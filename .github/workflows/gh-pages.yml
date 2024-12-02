@@ -11,6 +11,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-22.04
+    env:
+      GITHUB_TOKEN: ${{ secrets.actions_repo_token }}
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     permissions:
