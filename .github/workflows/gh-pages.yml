@@ -19,6 +19,15 @@ jobs:
       id-token: write   # to verify the deployment originates from an appropriate source
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+        with:
+          repository: thatrandybrown/notes
+          token: ${{ env.GITHUB_TOKEN }}
+          sparse-checkout: |
+            notes
+          sparse-checkout-cone-mode: false
+          path: new_notes
+      - run: ls -la new_notes
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
