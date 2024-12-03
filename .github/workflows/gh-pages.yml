@@ -29,6 +29,8 @@ jobs:
             notes
           sparse-checkout-cone-mode: false
           path: new_notes
+      - run: rm content/notes/*.md
+      - run: cp -r new_notes/notes/* content/notes/
       - run: ls -la new_notes/notes
       - name: Setup Node
         uses: actions/setup-node@v3
