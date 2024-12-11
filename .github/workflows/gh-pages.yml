@@ -9,6 +9,7 @@ on:
       - main
   schedule:
     - cron: '0 0 0 0,3,6 *'
+  workflow_dispatch:
 
 jobs:
   deploy:
