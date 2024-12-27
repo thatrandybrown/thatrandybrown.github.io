@@ -28,7 +28,7 @@ jobs:
         uses: robinraju/release-downloader@v1
         continue-on-error: true
         with:
-          repo: thatrandybrown/notes
+          repository: thatrandybrown/notes
           latest: true
           fileName: 'notes.zip'
           extract: true
