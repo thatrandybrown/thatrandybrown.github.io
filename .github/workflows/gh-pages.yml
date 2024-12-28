@@ -46,7 +46,6 @@ jobs:
           if [ -d "published_notes" ] && [ "$(ls -A published_notes)" ]; then
             cp -r published_notes/* content/notes/
           fi
-      - run: ls -la new_notes/notes
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
