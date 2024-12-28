@@ -42,15 +42,10 @@ jobs:
           fi
           rm -rf published_notes/notes*
           ls -al published_notes
-      - uses: actions/checkout@v4
-        with:
-          repository: thatrandybrown/notes
-          token: ${{ env.GITHUB_TOKEN }}
-          sparse-checkout: |
-            notes
-          sparse-checkout-cone-mode: false
-          path: new_notes
-      - run: cp -r published_notes/* content/notes/
+      - run: |
+          if [ -d "published_notes" ] && [ "$(ls -A published_notes)" ]; then
+            cp -r published_notes/* content/notes/
+          fi
       - run: ls -la new_notes/notes
       - name: Setup Node
         uses: actions/setup-node@v3
