@@ -24,15 +24,16 @@ jobs:
       id-token: write   # to verify the deployment originates from an appropriate source
     steps:
       - uses: actions/checkout@v3
-      # - name: Download the latest release
-      #   uses: robinraju/release-downloader@v1
-      #   continue-on-error: true
-      #   with:
-      #     repository: thatrandybrown/notes
-      #     latest: true
-      #     fileName: 'notes.zip'
-      #     extract: true
-      #     out-file-path: 'published_notes'
+      - name: Download the latest release
+        uses: robinraju/release-downloader@v1
+        continue-on-error: true
+        with:
+          repository: thatrandybrown/notes
+          latest: true
+          fileName: 'notes.zip'
+          extract: true
+          out-file-path: 'published_notes'
+          token: ${{ env.GITHUB_TOKEN }}
       # - name: Look for published notes
       #   run: ls -al . && ls -al published_notes && ls -al published_notes/notes
       # - name: Move notes up on level in published_notes
