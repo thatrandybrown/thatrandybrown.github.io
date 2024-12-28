@@ -37,7 +37,9 @@ jobs:
       - name: Move notes up on level in published_notes
         run: |
           mkdir -p published_notes/notes
-          mv published_notes/notes/* published_notes/
+          if [ -d "published_notes/notes" ] && [ "$(ls -A published_notes/notes)" ]; then
+            mv published_notes/notes/* published_notes/
+          fi
           rm -rf published_notes/notes*
           ls -al published_notes
       - uses: actions/checkout@v4
