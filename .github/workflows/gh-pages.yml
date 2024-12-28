@@ -34,8 +34,6 @@ jobs:
           extract: true
           out-file-path: 'published_notes'
           token: ${{ env.GITHUB_TOKEN }}
-      - name: Look for published notes
-        run: ls -al . && ls -al published_notes && ls -al published_notes/notes
       - name: Move notes up on level in published_notes
         run: |
           mkdir -p published_notes/notes
