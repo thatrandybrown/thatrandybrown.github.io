@@ -192,6 +192,7 @@ header {
 .postlist-item {
     flex: 1 1 30%;
 	min-height: 100%;
+	padding-bottom: 0.5em;
 }
 @media (max-width: 768px) {
     .postlist-item {
