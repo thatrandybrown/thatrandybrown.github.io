@@ -182,13 +182,22 @@ header {
 
 /* Posts list */
 .postlist {
-	padding: 0;
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping onto multiple rows */
+    padding: 0;
+    margin: 0;
+	align-items: stretch;
+	list-style-type: none;
 }
 .postlist-item {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: baseline;
-	margin-bottom: 1em;
+    flex: 1 1 30%;
+	min-height: 100%;
+}
+@media (max-width: 768px) {
+    .postlist-item {
+        flex: 1 1 100%; /* Each item takes up 100% of the width */
+        margin: 10px 0; /* Optional: Adjust margin to fit one column layout */
+    }
 }
 .postlist-date,
 .postlist-item:before {
