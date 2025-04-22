@@ -5,8 +5,6 @@ eleventyNavigation:
   order: 1
 ---
 
-# Randy Brown
-
 ## About Me
 
 ### Who I am
@@ -15,19 +13,15 @@ Husband and Dad of two small boys. I like video games, books, board games, legos
 
 ### What I do
 
-Support DevProd, DevEx, DevOps, Technology Council, Frontend Guild, etc.
-
-### Why I am Here
-
-I had to find a way to use my powers for good, after working in enterprise banking and other startups, and joined cerebral because of the social impact mission.
+I am a dedicated engineer for engineers. I love working on solving engineering problems, clearing brush, and doing what I can to help folks live their best lives and do their best work (usually in that order).
 
 ### How I Work
 
 Working within the art of the possible, taking consensus driven actions, and running toward fire
 
-## Receiving Feedback and Praise
+## Receiving Feedback
 
-Feedback is a gift. I encourage, anticipate, and deisre regular feedback on how I can improve.
+Feedback is a gift. I encourage, anticipate, and desire regular feedback on how I can improve.
 
 I am most receptive to feedback privately in a 1-1 with specific examples of behaviors to keep, improve, start, or stop, or otherwise change. In particular, if you are able to tie this feedback to how it impacts my growth and ability to support others it is helpful.
 
@@ -39,13 +33,11 @@ Chipper and Conversational. I'll probably start a conversation by saying hi and 
 
 ### Slack Management
 
-For everything, I consider Slack my main communication platform. Please slack, over email, if you want a response. Sending me an email is the best way to guarantee I will not respond. :)
+For everything, I consider slack my main communication platform. Please slack, over email, if you want a response. Sending me an email is the best way to guarantee I will not respond. :) I try to schedule messages to send during the workday, but sometimes I forget.
 
-I don't expect prompt responses, unless I otherwise denote it as urgent. 12 hour SLAs with responses during working hours. I try to schedule messages to send during the workday, but sometimes I forget.
+I manage slack a bit like its own todo list--flagging messages with reminders, and following up when I've got more bandwidth or am not in some heads down work.
 
-I try to go computers off between 430 PM and 830 PM CST and on the weekends--this is dedicated family time. If urgent, you can text or page me.
-
-I manage slack a bit like it's own todo list--flagging messages with reminders, and following up when I've got more bandwidth or am not in some heads down work.
+I try to go computers off between 4:30 PM and 8:30 PM CST and on the weekends--this is dedicated family time. If urgent, text or page me.
 
 ### Meeting Preferences
 
