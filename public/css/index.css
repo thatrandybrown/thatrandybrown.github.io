@@ -182,22 +182,23 @@ header {
 
 /* Posts list */
 .postlist {
-    display: flex;
-    flex-wrap: wrap; /* Allows wrapping onto multiple rows */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     padding: 0;
     margin: 0;
-	align-items: stretch;
-	list-style-type: none;
+    list-style-type: none;
 }
 .postlist-item {
-    flex: 1 1 30%;
-	min-height: 100%;
-	padding-bottom: 0.5em;
+    min-height: 100%;
+    padding-bottom: 0.5em;
 }
+
 @media (max-width: 768px) {
+    .postlist {
+        grid-template-columns: 1fr;
+    }
     .postlist-item {
-        flex: 1 1 100%; /* Each item takes up 100% of the width */
-        margin: 10px 0; /* Optional: Adjust margin to fit one column layout */
+        margin: 10px 0;
     }
 }
 .postlist-date,
