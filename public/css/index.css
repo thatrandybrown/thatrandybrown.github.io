@@ -197,9 +197,6 @@ header {
     .postlist {
         grid-template-columns: 1fr;
     }
-    .postlist-item {
-        margin: 10px 0;
-    }
 }
 .postlist-date,
 .postlist-item:before {
