@@ -66,3 +66,5 @@ jobs:
         uses: actions/upload-pages-artifact@v3
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
+      - name: Set tag name
+        run: echo "TAG_NAME=$(date +'%Y%m%d%H%M%S')-${GITHUB_SHA::7}" >> $GITHUB_ENV
