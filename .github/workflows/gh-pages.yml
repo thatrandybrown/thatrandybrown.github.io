@@ -66,6 +66,10 @@ jobs:
         uses: actions/upload-pages-artifact@v3
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
+      - name: Zip up the site
+        run: |
+          zip -r site.zip _site # can include -qq to suppress output
+          ls -al .
       - name: Set tag name
         run: echo "TAG_NAME=$(date +'%Y%m%d%H%M%S')-${GITHUB_SHA::7}" >> $GITHUB_ENV
       - name: Create release
