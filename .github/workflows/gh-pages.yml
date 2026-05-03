@@ -34,6 +34,13 @@ jobs:
           extract: true
           out-file-path: 'published_notes'
           token: ${{ env.GITHUB_TOKEN }}
+      - name: unzip the downloaded notes
+        run: |
+          if [ -f "notes.zip" ]; then
+            unzip notes.zip -d published_notes
+          else
+            echo "No notes.zip found, skipping unzip."
+          fi
       - name: Move notes up on level in published_notes
         run: |
           mkdir -p published_notes/notes
