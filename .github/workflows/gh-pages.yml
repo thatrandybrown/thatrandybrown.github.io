@@ -31,8 +31,6 @@ jobs:
           repository: thatrandybrown/notes
           latest: true
           fileName: 'notes.zip'
-          extract: true
-          out-file-path: 'published_notes'
           token: ${{ env.GITHUB_TOKEN }}
       - name: unzip the downloaded notes
         run: |
