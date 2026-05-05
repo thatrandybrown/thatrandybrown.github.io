@@ -78,6 +78,6 @@ jobs:
       - name: Set tag name
         run: echo "TAG_NAME=$(date +'%Y%m%d%H%M%S')-${GITHUB_SHA::7}" >> $GITHUB_ENV
       - name: Create release
-        run: gh release create ${{ env.TAG_NAME }} site.zip --title "Site Release ${{ env.TAG_NAME }}" --notes "Auto-generated release."
+        run: gh release create ${{ env.TAG_NAME }} site.zip notes.zip --title "Site Release ${{ env.TAG_NAME }}" --notes "Auto-generated release."
         env:
           GH_TOKEN: ${{ github.token }}
