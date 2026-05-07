@@ -33,6 +33,13 @@ jobs:
           latest: true
           fileName: 'notes.zip'
           token: ${{ env.GITHUB_TOKEN }}
+      - name: Download the last notes from site repository if the release download fails
+        if: steps.notes-release-download.outcome == 'failure'
+        uses: robinraju/release-downloader@v1
+        with:
+          latest: true
+          fileName: 'notes.zip'
+          token: ${{ env.GITHUB_TOKEN }}
       - name: unzip the downloaded notes
         run: |
           if [ -f "notes.zip" ]; then
