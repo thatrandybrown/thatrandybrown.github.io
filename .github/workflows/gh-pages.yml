@@ -23,7 +23,8 @@ jobs:
       pages: write      # to deploy to Pages
       id-token: write   # to verify the deployment originates from an appropriate source
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
       - name: Download the latest release
         uses: robinraju/release-downloader@v1
         id: notes-release-download
@@ -55,7 +56,8 @@ jobs:
           fi
           rm -rf published_notes/notes*
           ls -al published_notes
-      - run: |
+      - name: Copy notes to content/notes
+        run: |
           if [ -d "published_notes" ] && [ "$(ls -A published_notes)" ]; then
             cp -r published_notes/* content/notes/
           fi
@@ -73,8 +75,10 @@ jobs:
         with:
           path: ./.cache
           key: ${{ runner.os }}-eleventy-fetch-cache
-      - run: yarn install --frozen-lockfile
-      - run: yarn run build-ghpages
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Build site
+        run: yarn run build-ghpages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
       - name: Deploy to GitHub Pages
