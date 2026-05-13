@@ -1,13 +1,13 @@
 const { DateTime } = require("luxon");
 const markdownItAnchor = require("markdown-it-anchor");
 const wikilinks = require("markdown-it-wikilinks")({
-  baseURL: '/note/',
+  baseURL: "/note/",
   makeAllLinksAbsolute: true,
-  uriSuffix: '',
+  uriSuffix: "",
   postProcessPageName: (pageName) => {
-	console.log(`Processing wikilink: ${pageName}`);
-	return pageName.trim().replace(/ /g, '-').toLowerCase();
-  }
+    console.log(`Processing wikilink: ${pageName}`);
+    return pageName.trim().replace(/ /g, "-").toLowerCase();
+  },
 });
 const footnotes = require("markdown-it-footnote");
 

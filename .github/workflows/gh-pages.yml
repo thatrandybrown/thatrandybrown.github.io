@@ -8,7 +8,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 0 * * 0,3'
+    - cron: "0 0 * * 0,3"
   workflow_dispatch:
 
 jobs:
@@ -32,14 +32,14 @@ jobs:
         with:
           repository: thatrandybrown/notes
           latest: true
-          fileName: 'notes.zip'
+          fileName: "notes.zip"
           token: ${{ env.GITHUB_TOKEN }}
       - name: Download the last notes from site repository if the release download fails
         if: steps.notes-release-download.outcome == 'failure'
         uses: robinraju/release-downloader@v1
         with:
           latest: true
-          fileName: 'notes.zip'
+          fileName: "notes.zip"
           token: ${{ env.GITHUB_TOKEN }}
       - name: unzip the downloaded notes
         run: |
@@ -64,7 +64,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: '22'
+          node-version: "22"
       - name: Cache npm
         uses: actions/cache@v3
         with:
