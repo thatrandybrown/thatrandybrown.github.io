@@ -1,0 +1,140 @@
+/**
+ * CSS Custom Properties (Variables) System
+ * 
+ * This file defines the design tokens for the site:
+ * - Color palette
+ * - Typography scale
+ * - Spacing system
+ * - Layout dimensions
+ * 
+ * All variables use the BEM naming convention: --[category]-[property]-[modifier]
+ * Examples: --color-primary, --font-size-base, --spacing-md
+ */
+
+/* ============================================================================
+   TYPOGRAPHY
+   ============================================================================ */
+
+:root {
+  /* Font families */
+  --font-family: -apple-system, system-ui, sans-serif;
+  --font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+
+  /* Font sizing and line height */
+  --font-size-base: 1rem;
+  --line-height-base: 1.5;
+  --line-height-tight: 1.375;
+
+  /* Syntax highlighting */
+  --syntax-tab-size: 2;
+}
+
+/* ============================================================================
+   COLOR PALETTE - Light Mode
+   ============================================================================ */
+
+:root {
+  /* Neutral grays */
+  --color-gray-20: #e0e0e0;
+  --color-gray-50: #c0c0c0;
+  --color-gray-90: #333;
+
+  /* Background and text */
+  --background-color: #fff;
+  --background-color-alt: #f9f9f9;
+  
+  --text-color: var(--color-gray-90);
+  --text-color-secondary: #666;
+  
+  /* Links */
+  --text-color-link: #1493fb;
+  --text-color-link-active: #6969f7;
+  --text-color-link-visited: #a6a6f8;
+
+  /* Borders and dividers */
+  --border-color: var(--color-gray-20);
+}
+
+/* ============================================================================
+   COLOR PALETTE - Dark Mode
+   ============================================================================ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Neutral grays (adjusted for dark backgrounds) */
+    --color-gray-20: #e0e0e0;
+    --color-gray-50: #c0c0c0;
+    --color-gray-90: #dad8d8;
+
+    /* Background and text */
+    --background-color: #15202b;
+    --background-color-alt: #192734;
+    
+    --text-color: var(--color-gray-90);
+    --text-color-secondary: #aaa;
+
+    /* Links (keep for consistency) */
+    --text-color-link: #1493fb;
+    --text-color-link-active: #6969f7;
+    --text-color-link-visited: #a6a6f8;
+
+    /* Borders and dividers */
+    --border-color: #38444d;
+  }
+}
+
+/* ============================================================================
+   SPACING SYSTEM
+   ============================================================================ */
+
+:root {
+  /* Base unit: 0.5rem (8px) */
+  --spacing-xs: 0.25rem;   /* 4px */
+  --spacing-sm: 0.5rem;    /* 8px */
+  --spacing-md: 1rem;      /* 16px */
+  --spacing-lg: 1.5rem;    /* 24px */
+  --spacing-xl: 2rem;      /* 32px */
+  --spacing-2xl: 3rem;     /* 48px */
+
+  /* Common padding values */
+  --padding-inline: 1em;
+  --padding-block: 1em;
+
+  /* Common margin values */
+  --margin-block: 1em;
+}
+
+/* ============================================================================
+   LAYOUT & DIMENSIONS
+   ============================================================================ */
+
+:root {
+  /* Container sizing */
+  --max-content-width: 100%;
+  
+  /* Borders */
+  --border-style: dashed;
+  --border-width: 1px;
+}
+
+/* ============================================================================
+   TRANSITIONS & ANIMATIONS
+   ============================================================================ */
+
+:root {
+  --transition-fast: 100ms ease-out;
+  --transition-standard: 200ms ease-out;
+  --transition-slow: 300ms ease-out;
+}
+
+/* ============================================================================
+   SEMANTIC ALIASES (Optional - use these for semantic meaning)
+   ============================================================================ */
+
+:root {
+  /* Use these instead of direct color vars for semantic meaning */
+  --color-error: #e74c3c;
+  --color-success: #27ae60;
+  --color-warning: #f39c12;
+  --color-info: #3498db;
+}
