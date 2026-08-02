@@ -22,7 +22,7 @@ module.exports = function (eleventyConfig) {
   // https://www.11ty.dev/docs/plugins/image/
   eleventyConfig.addAsyncShortcode(
     "image",
-    async function imageShortcode(src, alt, widths, sizes) {
+    async function imageShortcode(src, alt, widths, sizes, options = {}) {
       // Full list of formats here: https://www.11ty.dev/docs/plugins/image/#output-formats
       // Warning: Avif can be resource-intensive so take care!
       let formats = ["avif", "webp", "auto"];
@@ -36,16 +36,21 @@ module.exports = function (eleventyConfig) {
       let metadata = await eleventyImage(input, {
         widths: widths || ["auto"],
         formats,
-        outputDir: path.join(eleventyConfig.dir.output, "img"), // Advanced usage note: `eleventyConfig.dir` works here because we’re using addPlugin.
+        outputDir: path.join(eleventyConfig.dir.output, "img"), // Advanced usage note: `eleventyConfig.dir` works here because we're using addPlugin.
       });
 
-      // TODO loading=eager and fetchpriority=high
+      // Support eager loading and fetchpriority for above-the-fold images
+      // Usage: {% image src, alt, widths, sizes, {eager: true} %}
       let imageAttributes = {
         alt,
         sizes,
-        loading: "lazy",
+        loading: options.eager ? "eager" : "lazy",
         decoding: "async",
       };
+
+      if (options.eager) {
+        imageAttributes.fetchpriority = "high";
+      }
 
       return eleventyImage.generateHTML(metadata, imageAttributes);
     },
