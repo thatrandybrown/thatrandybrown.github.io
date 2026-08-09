@@ -49,6 +49,13 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginBundle);
 
   // Filters
+  /**
+   * Format a date to a readable string (e.g., "01 January 2024")
+   * @param {Date} dateObj - The date to format
+   * @param {string} [format="dd LLLL yyyy"] - Luxon format string
+   * @param {string} [zone="utc"] - Timezone
+   * @returns {string} Formatted date string
+   */
   eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
     // Formatting tokens for Luxon: https://moment.github.io/luxon/#/formatting?id=table-of-tokens
     return DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).toFormat(
@@ -56,12 +63,22 @@ module.exports = function (eleventyConfig) {
     );
   });
 
+  /**
+   * Format a date for HTML (YYYY-MM-DD format)
+   * @param {Date} dateObj - The date to format
+   * @returns {string} HTML date string (yyyy-LL-dd)
+   */
   eleventyConfig.addFilter("htmlDateString", (dateObj) => {
     // dateObj input: https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd");
   });
 
-  // Get the first `n` elements of a collection.
+  /**
+   * Get the first `n` elements of a collection
+   * @param {Array} array - The array to slice
+   * @param {number} n - Number of elements to return (negative = from end)
+   * @returns {Array} Sliced array
+   */
   eleventyConfig.addFilter("head", (array, n) => {
     if (!Array.isArray(array) || array.length === 0) {
       return [];
@@ -73,12 +90,20 @@ module.exports = function (eleventyConfig) {
     return array.slice(0, n);
   });
 
-  // Return the smallest number argument
+  /**
+   * Return the smallest number from arguments
+   * @param {...number} numbers - Numbers to compare
+   * @returns {number} The minimum value
+   */
   eleventyConfig.addFilter("min", (...numbers) => {
     return Math.min.apply(null, numbers);
   });
 
-  // Return all the tags used in a collection
+  /**
+   * Return all tags used in a collection
+   * @param {Array} collection - Collection of items with data.tags
+   * @returns {string[]} Array of unique tags
+   */
   eleventyConfig.addFilter("getAllTags", (collection) => {
     let tagSet = new Set();
     for (let item of collection) {
@@ -87,6 +112,11 @@ module.exports = function (eleventyConfig) {
     return Array.from(tagSet);
   });
 
+  /**
+   * Filter out internal tags (all, nav, post, posts)
+   * @param {string[]} tags - Array of tag strings
+   * @returns {string[]} Filtered tags
+   */
   eleventyConfig.addFilter("filterTagList", function filterTagList(tags) {
     return (tags || []).filter(
       (tag) => ["all", "nav", "post", "posts"].indexOf(tag) === -1,
